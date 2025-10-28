@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KANCING — Final Fixed</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="gameArea">
+    <canvas id="worldCanvas"></canvas>
+
+    <!-- LEFT UI -->
+    <div id="leftUI">
+      <div class="uiItem">Uang: <span id="money">0</span></div>
+      <div class="uiItem">Umpan:</div>
+      <div class="uiSub">
+        <div>Cacing: <span id="bait_worm">0</span></div>
+        <div>Minnow: <span id="bait_minnow">0</span></div>
+        <div>Udang: <span id="bait_shrimp">0</span></div>
+      </div>
+      <div class="uiItem">Joran Lv: <span id="rodLevel">1</span></div>
+      <div class="uiItem">Upgrade Cost: <span id="rodCost">200</span></div>
+      <div id="titleBox" class="hidden">
+        <div id="titleImgWrap"><img id="titleImg" src="" alt="title" /></div>
+        <div id="titleText">Sesepuh Mancing</div>
+      </div>
+    </div>
+
+    <!-- CENTER UI (fishing UI hidden by default) -->
+    <div id="centerUI">
+      <div id="fishingUI" class="hidden" aria-hidden="true">
+        <div id="fBarWrap">
+          <div id="fBar" aria-hidden="true">
+            <div id="greenZone"></div>
+            <div id="cursor"></div>
+          </div>
+          <div id="tensionWrap">
+            <div id="tensionLabel">Senar</div>
+            <div id="tensionBar"><div id="tensionFill"></div></div>
+          </div>
+        </div>
+        <div id="progressWrap"><div id="progressFill"></div></div>
+        <div id="fText">Tahan tombol aksi untuk stabilkan</div>
+      </div>
+
+      <div id="fishPopup" class="hidden" aria-hidden="true">
+        <img id="fishPopupImg" src="" alt="fish" />
+        <div id="fishPopupName">Nama Ikan</div>
+      </div>
+    </div>
+
+    <!-- TOP UI -->
+    <div id="topUI">
+      <div id="topMsg">KANCING — Kacipet Mancing</div>
+      <div id="timeDisplay">Siang</div>
+    </div>
+
+    <!-- SHOP modal -->
+    <div id="shopModal" class="modal hidden" aria-hidden="true">
+      <h3>Toko Pancing</h3>
+      <div>Uang: $<span id="shopMoney">0</span></div>
+      <hr>
+      <button id="buy_worm_pack">Beli Cacing — $50 ( +10 )</button>
+      <button id="buy_minnow">Beli Minnow — $150 (1)</button>
+      <button id="buy_shrimp">Beli Udang — $75 ( +5 )</button>
+      <hr>
+      <button id="upgradeRod">Upgrade Joran</button>
+      <button id="buy_trophy">Beli Trophy</button>
+      <hr>
+      <button id="sellFish">Jual Semua Ikan</button>
+      <button id="closeShop">Tutup</button>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls">
+      <div class="dpad">
+        <div class="row"><div id="btnUp" class="ctl square">▲</div></div>
+        <div class="row">
+          <div id="btnLeft" class="ctl square">◀</div>
+          <div id="btnDown" class="ctl square">▼</div>
+          <div id="btnRight" class="ctl square">▶</div>
+        </div>
+      </div>
+      <div class="vbtns">
+        <div id="actionBtn" class="action">🎣</div>
+        <div id="shopBtn" class="shopbtn">🏪</div>
+      </div>
+    </div>
+
+    <!-- RIGHT UI -->
+    <div id="rightUI">
+      Karakter:
+      <select id="charSel">
+        <option value="0">Karakter 1</option>
+        <option value="1">Karakter 2</option>
+        <option value="2">Karakter 3</option>
+        <option value="3">Karakter 4</option>
+      </select>
+      <div style="margin-top:8px">Ikan: <span id="fishCount">0</span></div>
+      <div>Trophy: <span id="trophy">0</span></div>
+      <div style="margin-top:6px;font-size:12px;color:#ccc">Ganti gambar: taruh PNG di folder <code>images/</code></div>
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

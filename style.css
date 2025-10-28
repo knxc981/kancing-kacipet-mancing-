@@ -1,0 +1,73 @@
+:root{
+  --ui-bg: rgba(0,0,0,0.45);
+  --accent: #6fcf5c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:Inter,system-ui,Arial,sans-serif;overflow:hidden;background:#07120a;color:#fff}
+
+/* hidden helper */
+.hidden{display:none !important;opacity:0}
+
+/* container */
+#gameArea{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:960px;height:540px;border:3px solid #000;background:#07120a;overflow:hidden}
+canvas{display:block;width:100%;height:100%;image-rendering:pixelated}
+
+/* top */
+#topUI{position:absolute;left:50%;top:8px;transform:translateX(-50%);background:var(--ui-bg);padding:6px 10px;border-radius:8px;z-index:140;display:flex;gap:12px;align-items:center}
+#timeDisplay{font-weight:700;color:#ffd57a}
+
+/* left */
+#leftUI{position:absolute;left:8px;top:8px;width:190px;background:var(--ui-bg);padding:8px;border-radius:8px;z-index:120;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.uiItem{font-weight:700}
+.uiSub{font-size:13px;margin-left:6px;display:flex;flex-direction:column;gap:4px}
+#titleBox{margin-top:8px;display:flex;gap:6px;align-items:center}
+#titleImgWrap{width:40px;height:40px;background:rgba(255,255,255,0.04);border-radius:6px;display:flex;align-items:center;justify-content:center}
+#titleImg{max-width:36px;max-height:36px}
+#titleText{font-size:13px;color:#ffd57a;font-weight:800}
+
+/* center fishing UI (hidden by default) */
+#centerUI{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);z-index:140;pointer-events:none}
+#fishingUI{width:360px;background:rgba(0,0,0,0.55);padding:10px;border-radius:8px;display:flex;flex-direction:column;gap:6px;align-items:center;transition:opacity .25s}
+#fBarWrap{display:flex;gap:10px;align-items:center}
+#fBar{position:relative;width:260px;height:22px;background:#222;border-radius:8px;overflow:hidden}
+#greenZone{position:absolute;left:42%;width:16%;height:100%;background:#2ecc71}
+#cursor{position:absolute;top:-6px;width:10px;height:34px;background:#f1c40f;border-radius:6px;transition:left .06s linear}
+#tensionWrap{width:70px;display:flex;flex-direction:column;align-items:center}
+#tensionLabel{font-size:11px;color:#f6e6d8}
+#tensionBar{width:60px;height:8px;background:#111;border-radius:6px;overflow:hidden}
+#tensionFill{height:100%;width:0%;background:#ff6b6b;transition:width .08s linear}
+#progressWrap{width:300px;height:8px;background:#111;border-radius:6px;overflow:hidden}
+#progressFill{height:100%;width:0%;background:var(--accent);transition:width .1s linear}
+#fText{font-size:12px;color:#ddd}
+
+/* popup fish */
+#fishPopup{position:absolute;left:50%;top:28%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.75);padding:8px 12px;border-radius:10px;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:200;transition:opacity .25s}
+#fishPopup img{width:72px;height:48px;object-fit:contain}
+#fishPopupName{font-weight:800}
+
+/* shop modal */
+.modal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:360px;background:rgba(6,10,6,0.9);padding:12px;border-radius:8px;z-index:220}
+.modal.hidden{display:none}
+.modal button{padding:8px;border-radius:6px;border:none;background:#183a1f;color:#fff;font-weight:700}
+
+/* controls */
+#controls{position:absolute;left:8px;bottom:48px;display:flex;gap:12px;z-index:160;pointer-events:auto}
+.dpad{display:flex;flex-direction:column;gap:8px}
+.row{display:flex;gap:8px}
+.ctl{width:64px;height:64px;border-radius:8px;background:#171717;border:4px solid #2f2f2f;color:#e8e8e8;display:flex;align-items:center;justify-content:center;font-weight:800;touch-action:none;user-select:none}
+.square{box-shadow:inset 0 -6px 0 rgba(0,0,0,0.18)}
+.vbtns{display:flex;flex-direction:column;gap:8px;align-items:center}
+.action{width:84px;height:84px;border-radius:12px;background:linear-gradient(var(--accent),#2ea94a);color:#022;font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center;touch-action:none}
+.shopbtn{width:64px;height:44px;border-radius:8px;background:#b5651d;border:none;color:#fff;font-weight:800}
+
+/* right */
+#rightUI{position:absolute;right:8px;top:8px;background:var(--ui-bg);padding:8px;border-radius:8px;z-index:120;font-size:13px}
+
+/* responsive */
+@media (max-width:700px){
+  #gameArea{width:360px;height:203px}
+  .ctl{width:44px;height:44px}
+  .action{width:64px;height:64px}
+  #leftUI{width:130px;font-size:12px}
+  #centerUI{top:46%}
+}
